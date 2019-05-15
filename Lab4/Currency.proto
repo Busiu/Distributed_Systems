@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+enum Currency
+{
+    PLN = 0;
+    USD = 1;
+    EUR = 2;
+    JPY = 3;
+}
+
+service CurrencySubscription
+{
+    rpc Subscribe (Empty) returns (stream Response) {}
+}
+
+message Empty {}
+
+message Response
+{
+    Currency currency = 1;
+    double value = 2;
+}
